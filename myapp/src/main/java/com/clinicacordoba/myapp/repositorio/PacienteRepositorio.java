@@ -7,5 +7,6 @@ import com.clinicacordoba.myapp.entidades.Paciente;
 
 @Repository
 public interface PacienteRepositorio extends JpaRepository<Paciente, Long>{
-
+	
+	void removeByPaciente(Paciente paciente);
 }
