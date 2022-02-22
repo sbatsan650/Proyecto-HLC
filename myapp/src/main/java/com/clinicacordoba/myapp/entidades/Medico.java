@@ -15,8 +15,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
 @Entity
 @Table(name = "Medicos")
+@Data @AllArgsConstructor @NoArgsConstructor
 public class Medico implements Serializable{
 
 	/** SERIAL ID */

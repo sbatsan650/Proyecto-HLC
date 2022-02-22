@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>CLINICA - LISTAR INGRESOS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="card-body">
+	<div class="card text-white bg-warning mb-3">
+		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
+			<a class="navbar-brand" th:href="@{/PacienteView}" role="button">Ver todos los pacientes.</a>
+			<a class="navbar-brand" th:href="@{/searchPacienteByView}" role="button">Buscar paciente.</a>
+			<a class="navbar-brand" th:href="@{/newPacienteView}" role="button">Añadir paciente.</a>
+		</nav>
+
+		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
+			<a class="navbar-brand" th:href="@{/MedicoView}" role="button">Ver todos los medicos.</a>
+			<a class="navbar-brand" th:href="@{/searchMedicoByView}" role="button">Buscar medicos.</a>
+			<a class="navbar-brand" th:href="@{/newMedicoView}" role="button">Añadir medico.</a>
+		</nav>
+
+		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
+			<a class="navbar-brand" th:href="@{/IngresoView}" role="button">Ver todos los ingresos.</a>
+			<a class="navbar-brand" th:href="@{/searchIngresoByView}" role="button">Buscar ingresos.</a>
+			<a class="navbar-brand" th:href="@{/newIngresoView}" role="button">Añadir ingresos.</a>
+		</nav>
+	</div>
+	<br>
+
+	<div class="card text-white bg-info mb-3">
+		<div class="card-header">Ingresos</div>
+		<div class="card-body">
+			<table class="table table-striped table-info">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">ID de ingreso</th>
+						<th scope="col">Nº Habitación</th>
+						<th scope="col">Nº Cama</th>
+						<th scope="col">Fecha de ingreso</th>
+						<th scope="col" th:hidden="${btnDropIngresoEnabled}">Borrar</th>
+						<th scope="col" th:hidden="${btnUpdateIngresoEnabled}">Actualizar</th>
+					</tr>
+				<tbody>
+					<th:block th:each="ingreso : ${IngresosListView}">
+						<tr>
+							<td scope="row" th:text="${ingreso.ingreso_id}" />
+							<td scope="row" th:text="${ingreso.hab}" />
+							<td scope="row" th:text="${ingreso.cama}" />
+							<td scope="row" th:text="${ingreso.fecing}" />
+							<td scope="row" th:hidden="${btnDropIngresoEnabled}">
+								<form action="actDropIngreso" method="post">
+									<button th:disabled="${btnDropIngresoEnabled}" type="submit"
+										id="btnDropIngreso" name="ingresoId" th:value="${ingreso.ingreso_id}"
+										class="btn btn-danger">✕</button>
+								</form>
+							</td>
+							<td scope="row" th:hidden="${btnUpdateIngresoEnabled}">
+								<form action="actUpdateIngreso" method="POST">
+									<button th:disabled="${btnUpdateIngresoEnabled}" type="submit"
+										id="btnUpdateIngreso" name="ingresoId" th:value="${ingreso.ingreso_id}"
+										class="btn btn-danger">↻</button><!--&emsp;&emsp;&ensp;-->
+								</form>
+							</td>
+						</tr>
+					</th:block>
+				</tbody>
+				</thead>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

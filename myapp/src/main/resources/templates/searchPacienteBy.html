@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>CLINICA - BUSCAR PACIENTE</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="card-body">
+	<div class="card text-white bg-warning mb-3">
+		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
+			<a class="navbar-brand" th:href="@{/PacienteView}" role="button">Ver todos los pacientes.</a>
+			<a class="navbar-brand" th:href="@{/searchPacienteByView}" role="button">Buscar paciente.</a>
+			<a class="navbar-brand" th:href="@{/newPacienteView}" role="button">Añadir paciente.</a>
+		</nav>
+
+		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
+			<a class="navbar-brand" th:href="@{/MedicoView}" role="button">Ver todos los medicos.</a>
+			<a class="navbar-brand" th:href="@{/searchMedicoByView}" role="button">Buscar medicos.</a>
+			<a class="navbar-brand" th:href="@{/newMedicoView}" role="button">Añadir medico.</a>
+		</nav>
+
+		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
+			<a class="navbar-brand" th:href="@{/IngresoView}" role="button">Ver todos los ingresos.</a>
+			<a class="navbar-brand" th:href="@{/searchIngresoByView}" role="button">Buscar ingresos.</a>
+			<a class="navbar-brand" th:href="@{/newIngresoView}" role="button">Añadir ingresos.</a>
+		</nav>
+	</div>
+	<br>
+	
+	<div class="card text-white bg-dark mb-3">
+		  <div class="card-header">Búsqueda de pacientes</div>
+		  <div class="card-body">
+				<form th:action="@{/actSearchPaciente}" th:object="${searchedPaciente}" method="POST">
+					<div class="form-group">
+			  			<label for="inpId">Paciente ID</label>
+			  			<input type="text" class="form-control" id="inpTId" name="paciente_id" placeholder="Paciente ID.">
+					</div>
+					<div class="form-group">
+						  <label for="inpName">Nombre</label>
+						  <input type="text" class="form-control" id="inpTname" name="name" placeholder="Nombre.">
+					</div>
+					<div class="form-group">
+						  <label for="inpSurname">Apellidos</label>
+						  <input type="text" class="form-control" id="inpTsurname" name="surname" placeholder="Apellidos.">
+					</div>
+					<div class="form-group">
+						  <label for="inpAdress">Dirección</label>
+						  <input type="text" class="form-control" id="inpTadress" name="adress" placeholder="Dirección.">
+					</div>
+					<div class="form-group">
+						  <label for="inpProvince">Provincia</label>
+						  <input type="text" class="form-control" id="inpTprovince" name="province" placeholder="Provincia.">
+					</div>
+					<div class="form-group">
+						  <label for="inpPc">Codigo Postal</label>
+						  <input type="text" class="form-control" id="inpTpc" name="pc" placeholder="Codigo Postal.">
+					</div>
+					<div class="form-group">
+						  <label for="inpPhone">Telefono</label>
+						  <input type="text" class="form-control" id="inpTphone" name="phone" placeholder="Telefono.">
+					</div>
+					<div class="form-group">
+						  <label for="inpFecna">Fecha Nacimiento</label>
+						  <input type="text" class="form-control" id="inpTfecna" name="fecna" placeholder="Fecha Nacimiento.">
+					</div>
+					<button type="submit" name="btnSearchPacienteBy" class="btn btn-success">Buscar</button>
+					<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
+				</form>
+			  </div>
+			</div>
+	
+</body>
+</html>

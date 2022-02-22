@@ -3,10 +3,12 @@ package com.clinicacordoba.myapp.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.clinicacordoba.myapp.entidades.Medico;
 import com.clinicacordoba.myapp.repositorio.MedicoRepositorio;
 
+@Service
 public class MedicoServiceImpl implements MedicoServiceI{
 
 	@Autowired

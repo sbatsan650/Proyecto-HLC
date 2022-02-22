@@ -17,8 +17,14 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
 @Entity
 @Table(name = "Ingresos")
+@Data @AllArgsConstructor @NoArgsConstructor
 public class Ingreso implements Serializable{
 
 	/** SERIAL ID */
