@@ -41,7 +41,7 @@ public class SystemController {
 		//Redirecciona a la plantilla de búsqueda
 		@GetMapping("/searchMedicoByView")
 		public String redirectToMedicoSearchByTemplate() {
-			return "searchPacienteBy";
+			return "searchMedicoBy";
 		}
 		
 		//Redirecciona a la plantilla de insercción
