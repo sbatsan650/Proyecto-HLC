@@ -41,7 +41,7 @@ public class MedicoController {
 	}
 	
 	@PostMapping("/actDropMedico")
-	public String eliminarPaciente(@RequestParam String medicoId, Model model) {
+	public String eliminarMedico(@RequestParam String medicoId, Model model) {
 
 		// Eliminación de medico
 		medicoServiceI.eliminarMedicoPorId(Long.valueOf(medicoId));
@@ -51,7 +51,7 @@ public class MedicoController {
 	}
 	
 	@PostMapping("/actSearchMedico")
-	public String submitBuscarPacienteForm(@ModelAttribute ModeloMedico searchedMedico, Model model) throws Exception {
+	public String submitBuscarMedicoForm(@ModelAttribute ModeloMedico searchedMedico, Model model) throws Exception {
 
 		List<Medico> listaMedicos = new ArrayList<Medico>();
 				
@@ -124,7 +124,7 @@ public class MedicoController {
 	}
 
 	@PostMapping("/actAddMedico")
-	private String aniadirPaciente(@Valid @ModelAttribute ModeloMedico medico, BindingResult result) throws Exception {
+	private String aniadirMedico(@Valid @ModelAttribute ModeloMedico medico, BindingResult result) throws Exception {
 		
 		Medico p = new Medico();
 
@@ -144,7 +144,7 @@ public class MedicoController {
 	}
 
 	@GetMapping("/updateMedicoView")
-	public String editarPacientes(String medicoId, Model model) {
+	public String editarMedicos(String medicoId, Model model) {
 
 		// Obtencion del paciente
 		Medico p = medicoServiceI.obtenerMedicoPorId(Long.parseLong(medicoId));
