@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>CLINICA - ACTUALIZAR PACIENTE</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="card-body">
+	<div class="card text-white bg-warning mb-3">
+		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
+			<a class="navbar-brand" th:href="@{/PacienteView}" role="button">Ver todos los pacientes.</a>
+			<a class="navbar-brand" th:href="@{/searchPacienteByView}" role="button">Buscar paciente.</a>
+			<a class="navbar-brand" th:href="@{/newPacienteView}" role="button">Añadir paciente.</a>
+		</nav>
+
+		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
+			<a class="navbar-brand" th:href="@{/MedicoView}" role="button">Ver todos los medicos.</a>
+			<a class="navbar-brand" th:href="@{/searchMedicoByView}" role="button">Buscar medicos.</a>
+			<a class="navbar-brand" th:href="@{/newMedicoView}" role="button">Añadir medico.</a>
+		</nav>
+
+		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
+			<a class="navbar-brand" th:href="@{/IngresoView}" role="button">Ver todos los ingresos.</a>
+			<a class="navbar-brand" th:href="@{/searchIngresoByView}" role="button">Buscar ingresos.</a>
+			<a class="navbar-brand" th:href="@{/newIngresoView}" role="button">Añadir ingresos.</a>
+		</nav>
+	</div>
+	<br>
+
+	<div class="card text-white bg-info mb-3">
+		<form th:action="@{/actUpdatePaciente}" th:object="${paciente}">
+		<div class="card-header">Datos del paciente</div>
+			<div class="card-body">
+				<input type="hidden" required="required" class="form-control" id="inpCodigo" name="codigo"
+						th:value="${PacienteID}">
+			
+				<div class="form-group">
+					<label for="inpName">Nombre</label>
+					<input type="text" required="required" class="form-control" id="inpName" name="name"
+						th:value="${name}">
+				</div>
+				<div class="form-group">
+					<label for="inpSurname">Apellido</label>
+					<input type="text" required="required" class="form-control" id="inpSurname" name="surname"
+						th:value="${surname}">
+				</div>
+				<div class="form-group">
+					<label for="inpAddress">Dirección</label>
+					<input required="required" type="text" class="form-control" id="inpAddress" name="address"
+						th:value="${address}">
+				</div>
+				<div class="form-group">
+					<label for="inpProvince">Provincia</label>
+					<input required="required" type="text" class="form-control" id="inpProvince" name="province"
+						th:value="${province}">
+				</div>
+				<div class="form-group">
+					<label for="inpPc">Código Postal</label>
+					<input type="number" required="required" class="form-control" id="inpPc" name="pc"
+						th:value="${pc}">
+				</div>
+				<div class="form-group">
+					<label for="inpPhone">Teléfono</label>
+					<input required="required" type="text" class="form-control" id="inpPhone" name="phone"
+						th:value="${phone}">
+				</div>
+				<div class="form-group">
+					<label for="inpFecna">Fecha Nacimiento</label>
+					<input required="required" type="date" class="form-control" id="inpDate" name="fecna"
+						th:value="${fecna}">
+				</div>
+				
+				<button type="submit" name="btnUpdatePaciente" class="btn btn-success">Editar</button>
+				<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

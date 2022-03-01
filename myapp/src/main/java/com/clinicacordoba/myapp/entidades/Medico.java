@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,11 +41,11 @@ public class Medico implements Serializable{
 	@Column(name = "Apellidos", nullable = false)
 	private String surname;
 	
-	@Size(max=9)
+	@Range(min = 600000000, max = 799999999)
 	@Column(name = "Telefono", nullable = false)
 	private Long phone;
 	
-	@Size(max=8)
+	@Size(max=16)
 	@Column(name = "Especialidad", nullable = false)
 	private String especialidad;
 	

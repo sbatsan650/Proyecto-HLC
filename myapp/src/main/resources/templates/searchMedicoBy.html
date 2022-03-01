@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>CLINICA - BUSCAR PACIENTE</title>
+	<title>CLINICA - BUSCAR MEDICO</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -31,9 +31,9 @@
 	<br>
 	
 	<div class="card text-white bg-info mb-3">
-		  <div class="card-header">Búsqueda de pacientes</div>
+		  <div class="card-header">Búsqueda de medicos</div>
 		  <div class="card-body">
-				<form th:action="@{/actSearchPaciente}" th:object="${searchedPaciente}" method="POST">
+				<form th:action="@{/actSearchMedico}" th:object="${searchedMedico}" method="POST">
 					<div class="form-group">
 						  <label for="inpName">Nombre</label>
 						  <input type="text" class="form-control" id="inpTname" name="name" placeholder="Nombre.">
@@ -43,26 +43,14 @@
 						  <input type="text" class="form-control" id="inpTsurname" name="surname" placeholder="Apellidos.">
 					</div>
 					<div class="form-group">
-						  <label for="inpAddress">Dirección</label>
-						  <input type="text" class="form-control" id="inpTaddress" name="address" placeholder="Dirección.">
-					</div>
-					<div class="form-group">
-						  <label for="inpProvince">Provincia</label>
-						  <input type="text" class="form-control" id="inpTprovince" name="province" placeholder="Provincia.">
-					</div>
-					<div class="form-group">
-						  <label for="inpPc">Codigo Postal</label>
-						  <input type="text" class="form-control" id="inpTpc" name="pc" placeholder="Codigo Postal.">
-					</div>
-					<div class="form-group">
 						  <label for="inpPhone">Telefono</label>
 						  <input type="text" class="form-control" id="inpTphone" name="phone" placeholder="Telefono.">
 					</div>
 					<div class="form-group">
-						  <label for="inpFecna">Fecha Nacimiento</label>
-						  <input type="date" class="form-control" id="inpTfecna" name="fecna" placeholder="Fecha Nacimiento.">
+						  <label for="inpEspecialidad">Especialidad</label>
+						  <input type="text" class="form-control" id="inpTespecialidad" name="especialidad" placeholder="Especialidad.">
 					</div>
-					<button type="submit" name="btnSearchPacienteBy" class="btn btn-success">Buscar</button>
+					<button type="submit" name="btnSearchMedicoBy" class="btn btn-success">Buscar</button>
 					<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
 				</form>
 			  </div>

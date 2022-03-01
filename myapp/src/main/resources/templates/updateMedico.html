@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>CLINICA - INDEX</title>
+	<title>CLINICA - ACTUALIZAR MEDICO</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -31,10 +31,37 @@
 	<br>
 
 	<div class="card text-white bg-info mb-3">
-		<div class="card-body">
-			<h3>Bienvenid@ al sistema.</h3>
-			<h4>Por favor, seleccione una acción.</h4>
-		</div>
+		<form th:action="@{/actUpdateMedico}" th:object="${medico}">
+		<div class="card-header">Datos del medico</div>
+			<div class="card-body">
+				<input type="hidden" required="required" class="form-control" id="inpCodigo" name="codigo"
+						th:value="${MedicoID}">
+			
+				<div class="form-group">
+					<label for="inpName">Nombre</label>
+					<input type="text" required="required" class="form-control" id="inpName" name="name"
+						th:value="${name}">
+				</div>
+				<div class="form-group">
+					<label for="inpSurname">Apellido</label>
+					<input type="text" required="required" class="form-control" id="inpSurname" name="surname"
+						th:value="${surname}">
+				</div>
+				<div class="form-group">
+					<label for="inpPhone">Teléfono</label>
+					<input required="required" type="text" class="form-control" id="inpPhone" name="phone"
+						th:value="${phone}">
+				</div>
+				<div class="form-group">
+					<label for="inpEspecialidad">Especialidad</label>
+					<input required="required" type="text" class="form-control" id="inpEspecialidad" name="especialidad"
+						th:value="${especialidad}">
+				</div>
+				
+				<button type="submit" name="btnUpdateMedico" class="btn btn-success">Editar</button>
+				<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
+			</div>
+		</form>
 	</div>
 </body>
 

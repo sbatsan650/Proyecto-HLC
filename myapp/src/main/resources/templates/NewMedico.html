@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>CLINICA - INDEX</title>
+	<title>CLINICA - AÑADIR MEDICO</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -29,13 +29,31 @@
 		</nav>
 	</div>
 	<br>
-
 	<div class="card text-white bg-info mb-3">
+		<div class="card-header">Datos del nuevo medico</div>
 		<div class="card-body">
-			<h3>Bienvenid@ al sistema.</h3>
-			<h4>Por favor, seleccione una acción.</h4>
+			<form th:action="@{/actAddMedico}" th:object="${newMedico}" method="POST">
+				<div class="form-group">
+					  <label for="inpName">Nombre</label>
+					  <input type="text" class="form-control" id="inpTname" name="name" placeholder="Nombre.">
+				</div>
+				<div class="form-group">
+					  <label for="inpSurname">Apellidos</label>
+					  <input type="text" class="form-control" id="inpTsurname" name="surname" placeholder="Apellidos.">
+				</div>
+				<div class="form-group">
+					  <label for="inpPhone">Telefono</label>
+					  <input type="text" class="form-control" id="inpTphone" name="phone" placeholder="Telefono.">
+				</div>
+				<div class="form-group">
+					  <label for="inpEspecialidad">Especialidad</label>
+					  <input type="text" class="form-control" id="inpTespecialidad" name="especialidad" placeholder="Especialidad.">
+				</div>
+
+				<button type="submit" name="btnAddMedico" class="btn btn-success">Añadir</button>
+				<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
+			</form>
 		</div>
 	</div>
 </body>
-
 </html>

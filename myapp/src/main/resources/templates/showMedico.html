@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>CLINICA - LISTAR PACIENTES</title>
+	<title>CLINICA - LISTAR MEDICOS</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -31,44 +31,38 @@
 	<br>
 
 	<div class="card text-white bg-info mb-3">
-		<div class="card-header">Pacientes</div>
+		<div class="card-header">Medicos</div>
 		<div class="card-body">
 			<table class="table table-striped table-info">
 				<thead class="thead-light">
 					<tr>
-						<th scope="col">ID de paciente</th>
+						<th scope="col">ID de medico</th>
 						<th scope="col">Nombre</th>
 						<th scope="col">Apellido</th>
-						<th scope="col">Fecha Nacimiento</th>
 						<th scope="col">Teléfono</th>
-						<th scope="col">Dirección</th>
-						<th scope="col">Provincia</th>
-						<th scope="col">Código Postal</th>
-						<th scope="col" th:hidden="${btnDropPacienteEnabled}">Borrar</th>
-						<th scope="col" th:hidden="${btnUpdatePacienteEnabled}">Actualizar</th>
+						<th scope="col">Especialidad</th>
+						<th scope="col" th:hidden="${btnDropMedicoEnabled}">Borrar</th>
+						<th scope="col" th:hidden="${btnUpdateMedicoEnabled}">Actualizar</th>
 					</tr>
 				<tbody>
-					<th:block th:each="paciente : ${PacientesListView}">
+					<th:block th:each="medico : ${MedicosListView}">
 						<tr>
-							<td scope="row" th:text="${paciente.paciente_id}" />
-							<td scope="row" th:text="${paciente.name}" />
-							<td scope="row" th:text="${paciente.surname}" />
-							<td scope="row" th:text="${paciente.fecna}" />
-							<td scope="row" th:text="${paciente.phone}" />
-							<td scope="row" th:text="${paciente.address}" />
-							<td scope="row" th:text="${paciente.province}" />
-							<td scope="row" th:text="${paciente.pc}" />
-							<td scope="row" th:hidden="${btnDropPacienteEnabled}">
-								<form action="actDropPaciente" method="post">
-									<button th:disabled="${btnDropPacienteEnabled}" type="submit"
-										id="btnDropPaciente" name="pacienteId" th:value="${paciente.paciente_id}"
+							<td scope="row" th:text="${medico.medico_id}" />
+							<td scope="row" th:text="${medico.name}" />
+							<td scope="row" th:text="${medico.surname}" />
+							<td scope="row" th:text="${medico.phone}" />
+							<td scope="row" th:text="${medico.especialidad}" />
+							<td scope="row" th:hidden="${btnDropMedicoEnabled}">
+								<form action="actDropMedico" method="post">
+									<button th:disabled="${btnDropMedicoEnabled}" type="submit"
+										id="btnDropMedico" name="medicoId" th:value="${medico.medico_id}"
 										class="btn btn-danger">✕</button>
 								</form>
 							</td>
-							<td scope="row" th:hidden="${btnUpdatePacienteEnabled}">
-								<form action="updatePacienteView">
-									<button th:disabled="${btnUpdatePacienteEnabled}" type="submit"
-										id="btnUpdatePaciente" name="pacienteId" th:value="${paciente.paciente_id}"
+							<td scope="row" th:hidden="${btnUpdateMedicoEnabled}">
+								<form action="updateMedicoView">
+									<button th:disabled="${btnUpdateMedicoEnabled}" type="submit"
+										id="btnUpdateMedico" name="medicoId" th:value="${medico.medico_id}"
 										class="btn btn-danger">↻</button><!--&emsp;&emsp;&ensp;-->
 								</form>
 							</td>

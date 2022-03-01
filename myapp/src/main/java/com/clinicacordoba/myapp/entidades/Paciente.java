@@ -17,6 +17,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -50,11 +52,11 @@ public class Paciente implements Serializable{
 	@Column(name = "Provincia", nullable = false)
 	private String province;
 	
-	@Size(max=5)
+	@Range(min = 10000, max = 19000)
 	@Column(name = "Codigo_Postal", nullable = false)
 	private Long pc;
 	
-	@Size(max=9)
+	@Range(min = 600000000, max = 799999999)
 	@Column(name = "Telefono", nullable = false)
 	private Long phone;
 	
