@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.clinicacordoba.myapp.entidades.Medico;
 import com.clinicacordoba.myapp.entidades.ModeloMedico;
-import com.clinicacordoba.myapp.entidades.ModeloPaciente;
 import com.clinicacordoba.myapp.servicios.MedicoServiceI;
 
 @Controller

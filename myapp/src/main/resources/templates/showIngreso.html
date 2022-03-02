@@ -24,7 +24,8 @@
 
 		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-warning">
 			<a class="navbar-brand" th:href="@{/IngresoView}" role="button">Ver todos los ingresos.</a>
-			<a class="navbar-brand" th:href="@{/searchIngresoByView}" role="button">Buscar ingresos.</a>
+			<a class="navbar-brand" th:href="@{/searchIngresoPacByView}" role="button">Buscar ingresos de Paciente.</a>
+			<a class="navbar-brand" th:href="@{/searchIngresoMedByView}" role="button">Buscar ingresos de Medico.</a>
 			<a class="navbar-brand" th:href="@{/newIngresoView}" role="button">Añadir ingresos.</a>
 		</nav>
 	</div>
@@ -37,16 +38,19 @@
 				<thead class="thead-light">
 					<tr>
 						<th scope="col">ID de ingreso</th>
+						<th scope="col">Nombre del Medico</th>
+						<th scope="col">Nombre del Paciente</th>
 						<th scope="col">Nº Habitación</th>
 						<th scope="col">Nº Cama</th>
 						<th scope="col">Fecha de ingreso</th>
 						<th scope="col" th:hidden="${btnDropIngresoEnabled}">Borrar</th>
-						<th scope="col" th:hidden="${btnUpdateIngresoEnabled}">Actualizar</th>
 					</tr>
 				<tbody>
 					<th:block th:each="ingreso : ${IngresosListView}">
 						<tr>
 							<td scope="row" th:text="${ingreso.ingreso_id}" />
+							<td scope="row" th:text="${ingreso.medico.name}"/>
+							<td scope="row" th:text="${ingreso.paciente.name}"/>
 							<td scope="row" th:text="${ingreso.hab}" />
 							<td scope="row" th:text="${ingreso.cama}" />
 							<td scope="row" th:text="${ingreso.fecing}" />
@@ -55,13 +59,6 @@
 									<button th:disabled="${btnDropIngresoEnabled}" type="submit"
 										id="btnDropIngreso" name="ingresoId" th:value="${ingreso.ingreso_id}"
 										class="btn btn-danger">✕</button>
-								</form>
-							</td>
-							<td scope="row" th:hidden="${btnUpdateIngresoEnabled}">
-								<form action="actUpdateIngreso" method="POST">
-									<button th:disabled="${btnUpdateIngresoEnabled}" type="submit"
-										id="btnUpdateIngreso" name="ingresoId" th:value="${ingreso.ingreso_id}"
-										class="btn btn-danger">↻</button><!--&emsp;&emsp;&ensp;-->
 								</form>
 							</td>
 						</tr>
