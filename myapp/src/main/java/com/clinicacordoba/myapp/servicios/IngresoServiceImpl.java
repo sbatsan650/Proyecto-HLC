@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.clinicacordoba.myapp.entidades.Ingreso;
+import com.clinicacordoba.myapp.entidades.Medico;
+import com.clinicacordoba.myapp.entidades.Paciente;
 import com.clinicacordoba.myapp.repositorio.IngresoRepositorio;
 
 @Service
@@ -37,6 +39,16 @@ public class IngresoServiceImpl implements IngresoServiceI{
 	@Override
 	public void actualizarIngreso(Ingreso ingreso) {
 		ingresoRepositorio.save(ingreso);
+	}
+
+	@Override
+	public List<Ingreso> obtenerIngresosPorPaciente(Paciente p) {		
+		return ingresoRepositorio.findByPaciente(p);
+	}
+
+	@Override
+	public List<Ingreso> obtenerIngresosPorMedico(Medico m) {
+		return ingresoRepositorio.findByMedico(m);
 	}
 
 }

@@ -145,11 +145,11 @@ public class MedicoController {
 	@GetMapping("/updateMedicoView")
 	public String editarMedicos(String medicoId, Model model) {
 
-		// Obtencion del paciente
+		// Obtencion del medico
 		Medico p = medicoServiceI.obtenerMedicoPorId(Long.parseLong(medicoId));
 
 		// Carga de datos
-		model.addAttribute("id", p.getMedico_id());
+		model.addAttribute("medico_id", p.getMedico_id());
 		model.addAttribute("name", p.getName());
 		model.addAttribute("surname", p.getSurname());
 		model.addAttribute("especialidad", p.getEspecialidad());
@@ -159,19 +159,11 @@ public class MedicoController {
 	}
 	
 	@GetMapping("/actUpdateMedico")
-	public String editarMedico(@Valid @ModelAttribute ModeloMedico medico, BindingResult result) throws Exception {
-
-		Medico p = new Medico();
-
-		p.setName(medico.getName());
-		p.setSurname(medico.getSurname());
-		p.setPhone(medico.getPhone());
-		p.setEspecialidad(medico.getEspecialidad());
-		
+	public String editarMedico(@Valid @ModelAttribute Medico medico, BindingResult result) throws Exception {
 		if (result.hasErrors()) {
 			throw new Exception("Parámetros erróneos");
 		} else {
-			medicoServiceI.actualizarMedico(p);
+			medicoServiceI.actualizarMedico(medico);
 		}
 
 		return "redirect:showMedicoView";

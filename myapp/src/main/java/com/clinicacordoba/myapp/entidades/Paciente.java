@@ -52,7 +52,7 @@ public class Paciente implements Serializable{
 	@Column(name = "Provincia", nullable = false)
 	private String province;
 	
-	@Range(min = 10000, max = 19000)
+	@Range(min = 10000, max = 99000)
 	@Column(name = "Codigo_Postal", nullable = false)
 	private Long pc;
 	

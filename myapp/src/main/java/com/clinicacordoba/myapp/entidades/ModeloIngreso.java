@@ -1,7 +1,5 @@
 package com.clinicacordoba.myapp.entidades;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,9 +13,9 @@ public class ModeloIngreso{
 	
 	private Long cama;
 	
-	private Date fecing;
+	private String fecing;
 	
-	private Medico medico;
+	private String medicoId;
 	
-	private Paciente paciente;	
+	private String pacienteId;	
 }

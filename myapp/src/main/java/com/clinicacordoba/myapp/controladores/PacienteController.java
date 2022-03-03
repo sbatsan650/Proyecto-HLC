@@ -73,7 +73,7 @@ public class PacienteController {
 		if (pacienteId != 9999 /*StringUtils.hasText(String.valueOf(pacienteId))*/) {
 			final Paciente paciente;
 
-			// Búsqueda por matrícula
+			// Búsqueda por id
 			paciente = pacienteServiceI.obtenerPacientePorId(pacienteId);
 
 			if (paciente != null) {
@@ -214,7 +214,7 @@ public class PacienteController {
 		Paciente p = pacienteServiceI.obtenerPacientePorId(Long.parseLong(pacienteId));
 
 		// Carga de datos
-		model.addAttribute("id", p.getPaciente_id());
+		model.addAttribute("paciente_id", p.getPaciente_id());
 		model.addAttribute("name", p.getName());
 		model.addAttribute("surname", p.getSurname());
 		model.addAttribute("pc", p.getPc());
@@ -227,13 +227,14 @@ public class PacienteController {
 	}
 	
 	@GetMapping("/actUpdatePaciente")
-	public String editarMedico(@Valid @ModelAttribute ModeloPaciente paciente, BindingResult result) throws Exception {
+	public String editarPaciente(@Valid @ModelAttribute ModeloPaciente paciente, BindingResult result) throws Exception {
 
 		Paciente p = new Paciente();
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date fecha = dateFormat.parse(paciente.getFecna());
 
+		p.setPaciente_id(paciente.getPaciente_id());
 		p.setName(paciente.getName());
 		p.setSurname(paciente.getSurname());
 		p.setAddress(paciente.getAddress());

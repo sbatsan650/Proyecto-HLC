@@ -14,8 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
@@ -35,11 +35,11 @@ public class Ingreso implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ingreso_id;
 	
-	@Size(max=4)
+	@Range(min=0, max=9999)
 	@Column(name = "Habitacion", nullable = false)
 	private Long hab;
 	
-	@Size(max=4)
+	@Range(min=0, max=9999)
 	@Column(name = "Cama", nullable = false)
 	private Long cama;
 	

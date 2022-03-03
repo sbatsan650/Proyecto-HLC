@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>CLINICA - ACTUALIZAR MEDICO</title>
+	<title>CLINICA - LISTAR INGRESOS POR PACIENTE</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -32,37 +32,21 @@
 	<br>
 
 	<div class="card text-white bg-info mb-3">
-		<form th:action="@{/actUpdateMedico}" th:object="${medico}">
-		<div class="card-header">Datos del medico</div>
-			<div class="card-body">
-				<input type="hidden" required="required" class="form-control" id="inpMedico_id" name="medico_id"
-						th:value="${medico_id}">
-			
+		<div class="card-header">Ingresos de paciente</div>
+		<div class="card-body">
+			<h2>Selecciona un paciente</h2>
+			<form th:action="@{/showIngresosPacientesView}" th:object="${paciente}" method="POST">
 				<div class="form-group">
-					<label for="inpName">Nombre</label>
-					<input type="text" required="required" class="form-control" id="inpName" name="name"
-						th:value="${name}">
+					<label for="inpPacientelbl">Paciente</label>
+					<select class="form-control" name="paciente_id">
+						<option th:each="paciente : ${IngresosListView}" th:value="${paciente.paciente_id}"
+							th:text="${paciente.paciente_id} + ' - ' + ${paciente.name} + ' ' + ${paciente.surname}"></option>
+					</select>
 				</div>
-				<div class="form-group">
-					<label for="inpSurname">Apellido</label>
-					<input type="text" required="required" class="form-control" id="inpSurname" name="surname"
-						th:value="${surname}">
-				</div>
-				<div class="form-group">
-					<label for="inpPhone">Teléfono</label>
-					<input required="required" type="text" class="form-control" id="inpPhone" name="phone"
-						th:value="${phone}">
-				</div>
-				<div class="form-group">
-					<label for="inpEspecialidad">Especialidad</label>
-					<input required="required" type="text" class="form-control" id="inpEspecialidad" name="especialidad"
-						th:value="${especialidad}">
-				</div>
-				
-				<button type="submit" name="btnUpdateMedico" class="btn btn-success">Editar</button>
+				<button type="submit" name="btnBuscar" class="btn btn-success">Buscar</button>
 				<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
 </body>
 

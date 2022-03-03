@@ -32,7 +32,7 @@ public class SystemController {
 			return "newPaciente";
 		}
 		
-		//Redirecciona al controlador de gestión de pacientes
+		//Redirecciona al controlador de gestión de medicos
 		@GetMapping("/MedicoView")
 		public String redirectToMedicoDealershipController() {
 			return "redirect:showMedicoView";
@@ -65,5 +65,15 @@ public class SystemController {
 		@GetMapping("/newIngresoView")
 		public String redirectToNewIngresoTemplate() {
 			return "newIngreso";
+		}
+		
+		@GetMapping("/searchIngresoPacByView")
+		public String redirectToIngresoPacienteController() {
+			return "redirect:showIngresosPacientes";
+		}
+		
+		@GetMapping("/searchIngresoMedByView")
+		public String redirectToIngresoMedicoController() {
+			return "redirect:showIngresosMedicos";
 		}
 }

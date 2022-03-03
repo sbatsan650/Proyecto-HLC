@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>CLINICA - ACTUALIZAR MEDICO</title>
+	<title>CLINICA - AÑADIR INGRESO</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -30,40 +30,35 @@
 		</nav>
 	</div>
 	<br>
-
 	<div class="card text-white bg-info mb-3">
-		<form th:action="@{/actUpdateMedico}" th:object="${medico}">
-		<div class="card-header">Datos del medico</div>
-			<div class="card-body">
-				<input type="hidden" required="required" class="form-control" id="inpMedico_id" name="medico_id"
-						th:value="${medico_id}">
-			
+		<div class="card-header">Datos del nuevo ingreso</div>
+		<div class="card-body">
+			<form th:action="@{/actAddIngreso}" th:object="${newIngreso}" method="POST">
 				<div class="form-group">
-					<label for="inpName">Nombre</label>
-					<input type="text" required="required" class="form-control" id="inpName" name="name"
-						th:value="${name}">
+					  <label for="inpHab">Nº Habitación</label>
+					  <input type="text" class="form-control" id="inpThab" name="hab" placeholder="Habitacion.">
 				</div>
 				<div class="form-group">
-					<label for="inpSurname">Apellido</label>
-					<input type="text" required="required" class="form-control" id="inpSurname" name="surname"
-						th:value="${surname}">
+					  <label for="inpCama">Nº Cama</label>
+					  <input type="text" class="form-control" id="inpTcama" name="cama" placeholder="Cama.">
 				</div>
 				<div class="form-group">
-					<label for="inpPhone">Teléfono</label>
-					<input required="required" type="text" class="form-control" id="inpPhone" name="phone"
-						th:value="${phone}">
+					  <label for="inpFecing">Fecha de ingreso</label>
+					  <input type="date" class="form-control" id="inpTfecing" name="fecing" placeholder="Fecha de ingreso.">
 				</div>
 				<div class="form-group">
-					<label for="inpEspecialidad">Especialidad</label>
-					<input required="required" type="text" class="form-control" id="inpEspecialidad" name="especialidad"
-						th:value="${especialidad}">
+					  <label for="inpPacienteId">Id del paciente</label>
+					  <input type="text" class="form-control" id="inpTpacienteId" name="pacienteId" placeholder="Id del paciente.">
 				</div>
-				
-				<button type="submit" name="btnUpdateMedico" class="btn btn-success">Editar</button>
+				<div class="form-group">
+					  <label for="inpMedicoId">Id del medico</label>
+					  <input type="text" class="form-control" id="inpTmedicoId" name="medicoId" placeholder="Id del medico.">
+				</div>
+
+				<button type="submit" name="btnAddIngreso" class="btn btn-success">Añadir</button>
 				<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
 </body>
-
 </html>

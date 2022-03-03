@@ -35,8 +35,8 @@
 		<form th:action="@{/actUpdatePaciente}" th:object="${paciente}">
 		<div class="card-header">Datos del paciente</div>
 			<div class="card-body">
-				<input type="hidden" required="required" class="form-control" id="inpCodigo" name="codigo"
-						th:value="${PacienteID}">
+				<input type="hidden" required="required" class="form-control" id="inpPaciente_id" name="paciente_id"
+						th:value="${paciente_id}">
 			
 				<div class="form-group">
 					<label for="inpName">Nombre</label>
