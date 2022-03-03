@@ -8,5 +8,4 @@ import com.clinicacordoba.myapp.entidades.Medico;
 @Repository
 public interface MedicoRepositorio extends JpaRepository<Medico, Long>{
 	
-	// void removeByMedico(Medico medico);
 }

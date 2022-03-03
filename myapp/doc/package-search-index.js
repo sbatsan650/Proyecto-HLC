@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.clinicacordoba.myapp.controladores"},{"l":"com.clinicacordoba.myapp.entidades"},{"l":"com.clinicacordoba.myapp.repositorio"},{"l":"com.clinicacordoba.myapp.servicios"}];updateSearchResults();
