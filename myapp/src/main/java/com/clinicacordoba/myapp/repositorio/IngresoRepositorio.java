@@ -15,6 +15,4 @@ public interface IngresoRepositorio extends JpaRepository<Ingreso, Long>{
 	List<Ingreso> findByMedico(Medico medico);
 	
 	List<Ingreso> findByPaciente(Paciente paciente);
-	
-	//void removeByIngreso(Ingreso ingreso);
 }

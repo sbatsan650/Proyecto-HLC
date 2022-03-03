@@ -22,12 +22,22 @@ import com.clinicacordoba.myapp.entidades.ModeloPaciente;
 import com.clinicacordoba.myapp.entidades.Paciente;
 import com.clinicacordoba.myapp.servicios.PacienteServiceI;
 
+/**
+ * Clase controladora de paciente
+ * @author Sergio
+ *
+ */
 @Controller
 public class PacienteController {
 
 	@Autowired
 	private PacienteServiceI pacienteServiceI;
 	
+	/**
+	 * Metodo que muestra todos los pacientes
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@GetMapping("/showPacienteView")
 	public String mostrarPacientes(Model model) {
 
@@ -42,6 +52,12 @@ public class PacienteController {
 		return "showPaciente";
 	}
 	
+	/**
+	 * Metodo que elimina un paciente por Id
+	 * @param pacienteId
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@PostMapping("/actDropPaciente")
 	public String eliminarPaciente(@RequestParam String pacienteId, Model model) {
 
@@ -52,6 +68,13 @@ public class PacienteController {
 
 	}
 	
+	/**
+	 * Metodo que busca un paciente por tipo
+	 * @param searchedPaciente Paciente recibido por parametro
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 * @throws Exception Devuelve una exception en caso de error
+	 */
 	@PostMapping("/actSearchPaciente")
 	public String submitBuscarPacienteForm(@ModelAttribute ModeloPaciente searchedPaciente, Model model) throws Exception {
 
@@ -181,6 +204,13 @@ public class PacienteController {
 
 	}
 
+	/**
+	 * Metodo de añadir paciente
+	 * @param paciente Objeto Paciente recibido por parametro
+	 * @param result
+	 * @return Redirige a la pagina deseada 
+	 * @throws Exception Devuelve una excepcion en caso de error
+	 */
 	@PostMapping("/actAddPaciente")
 	private String aniadirPaciente(@Valid @ModelAttribute ModeloPaciente paciente, BindingResult result) throws Exception {
 		
@@ -207,6 +237,12 @@ public class PacienteController {
 		return "redirect:showPacienteView";
 	}
 
+	/**
+	 * Metodo para editar un paciente
+	 * @param pacienteId Id de paciente recibido por parametro
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@GetMapping("/updatePacienteView")
 	public String editarPacientes(String pacienteId, Model model) {
 
@@ -226,6 +262,13 @@ public class PacienteController {
 		return "updatePaciente";
 	}
 	
+	/**
+	 * Metodo que edita al paciente
+	 * @param paciente Paciente recibido por parametro
+	 * @param result
+	 * @return Redirige a la pagina deseada 
+	 * @throws Exception
+	 */
 	@GetMapping("/actUpdatePaciente")
 	public String editarPaciente(@Valid @ModelAttribute ModeloPaciente paciente, BindingResult result) throws Exception {
 

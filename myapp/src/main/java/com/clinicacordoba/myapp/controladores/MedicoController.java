@@ -19,12 +19,22 @@ import com.clinicacordoba.myapp.entidades.Medico;
 import com.clinicacordoba.myapp.entidades.ModeloMedico;
 import com.clinicacordoba.myapp.servicios.MedicoServiceI;
 
+/**
+ * Clase controladora de Medico
+ * @author Sergio
+ *
+ */
 @Controller
 public class MedicoController {
 
 	@Autowired
 	private MedicoServiceI medicoServiceI;
 	
+	/**
+	 * Muestra todos los medicos
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@GetMapping("/showMedicoView")
 	public String mostrarMedicos(Model model) {
 
@@ -39,6 +49,12 @@ public class MedicoController {
 		return "showMedico";
 	}
 	
+	/**
+	 * Elimina un medico por id
+	 * @param medicoId Recibe un id de medico de la vista
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@PostMapping("/actDropMedico")
 	public String eliminarMedico(@RequestParam String medicoId, Model model) {
 
@@ -49,6 +65,13 @@ public class MedicoController {
 
 	}
 	
+	/**
+	 * Metodo para buscar un medico por tipo
+	 * @param searchedMedico Objeto ModeloMedico recibido de la vista
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 * @throws Exception En caso de error devuelve una excepcion
+	 */
 	@PostMapping("/actSearchMedico")
 	public String submitBuscarMedicoForm(@ModelAttribute ModeloMedico searchedMedico, Model model) throws Exception {
 
@@ -122,6 +145,13 @@ public class MedicoController {
 
 	}
 
+	/**
+	 * Metodo para añadir un medico
+	 * @param medico
+	 * @param result
+	 * @return Redirige a la pagina deseada 
+	 * @throws Exception Devuelve una excepcion en caso de error
+	 */
 	@PostMapping("/actAddMedico")
 	private String aniadirMedico(@Valid @ModelAttribute ModeloMedico medico, BindingResult result) throws Exception {
 		
@@ -142,6 +172,12 @@ public class MedicoController {
 		return "redirect:showMedicoView";
 	}
 
+	/**
+	 * Metodo para editar un medico
+	 * @param medicoId Id de medico recibido por la vista
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@GetMapping("/updateMedicoView")
 	public String editarMedicos(String medicoId, Model model) {
 
@@ -158,6 +194,13 @@ public class MedicoController {
 		return "updateMedico";
 	}
 	
+	/**
+	 * Metodo que edita el medico deseado
+	 * @param medico Objeto medico recibido por parametro
+	 * @param result
+	 * @return Redirige a la pagina deseada 
+	 * @throws Exception
+	 */
 	@GetMapping("/actUpdateMedico")
 	public String editarMedico(@Valid @ModelAttribute Medico medico, BindingResult result) throws Exception {
 		if (result.hasErrors()) {

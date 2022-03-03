@@ -23,6 +23,11 @@ import com.clinicacordoba.myapp.servicios.IngresoServiceI;
 import com.clinicacordoba.myapp.servicios.MedicoServiceI;
 import com.clinicacordoba.myapp.servicios.PacienteServiceI;
 
+/**
+ * Clase Controlador Ingreso
+ * @author Sergio
+ *
+ */
 @Controller
 public class IngresoController {
 
@@ -33,6 +38,11 @@ public class IngresoController {
 	@Autowired
 	private PacienteServiceI pacienteServiceI;
 	
+	/**
+	 * Metodo de carga para mostrar ingresos
+	 * @param model modelo de la vista html
+	 * @return Redirige a la pagina deseada
+	 */
 	@GetMapping("/showIngresoView")
 	public String mostrarIngresos(Model model) {
 		// Obtención de ingresos
@@ -45,6 +55,12 @@ public class IngresoController {
 		return "showIngreso";
 	}
 	
+	/**
+	 * Metodo que elimina un ingreso
+	 * @param ingresoId Id de ingreso recibido por parametro
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@PostMapping("/actDropIngreso")
 	public String eliminarIngreso(@RequestParam String ingresoId, Model model) {
 
@@ -54,6 +70,13 @@ public class IngresoController {
 		return "redirect:showIngresoView";
 	}
 
+	/**
+	 * Metodo de añadir un ingreso
+	 * @param Ingreso Recibe un modelo ingreso
+	 * @param result
+	 * @return Redirige a la pagina deseada 
+	 * @throws Exception En caso de fallo devuelve una excepcion
+	 */
 	@PostMapping("/actAddIngreso")
 	private String aniadirIngreso(@Valid @ModelAttribute ModeloIngreso Ingreso, BindingResult result)
 			throws Exception {
@@ -114,6 +137,11 @@ public class IngresoController {
 		return "redirect:showIngresoView";
 	}
 	
+	/**
+	 * Metodo para devolver los pacientes
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@GetMapping("/showIngresosPacientes")
 	public String mostrarIngresosPac(Model model) {
 		// Obtención de ingresos
@@ -126,6 +154,12 @@ public class IngresoController {
 		return "showIngresoPaciente";
 	}
 	
+	/**
+	 * Metodo para mostrar los ingresos de un paciente
+	 * @param paciente Recibe un paciente de la vista
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@PostMapping("/showIngresosPacientesView")
 	public String mostrarIngresosPacView(@Valid @ModelAttribute Paciente paciente, Model model) {
 
@@ -141,6 +175,11 @@ public class IngresoController {
 		return "showIngreso";
 	}
 	
+	/**
+	 * Metodo para devolver los medicos
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@GetMapping("/showIngresosMedicos")
 	public String mostrarIngresosMed(Model model) {
 		// Obtención de ingresos
@@ -153,6 +192,12 @@ public class IngresoController {
 		return "showIngresoMedico";
 	}
 	
+	/**
+	 * Metodo para mostrar los ingresos de un medico
+	 * @param medico Recibe un objeto medico
+	 * @param model
+	 * @return Redirige a la pagina deseada 
+	 */
 	@PostMapping("/showIngresosMedicosView")
 	public String mostrarIngresosMedView(@Valid @ModelAttribute Medico medico, Model model) {
 
